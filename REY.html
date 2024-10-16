@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispositivo infectado</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Verdana', sans-serif;
+            background-color: #b3b3b3; /* Color de fondo gris */
+            color: #333333; /* Color del texto gris oscuro */
+        }
+        .container {
+            text-align: center;
+        }
+        img {
+            width: 200px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #cc0000; /* Color rojo para el mensaje principal */
+        }
+        a {
+            font-size: 18px;
+            color: #0033cc; /* Azul para el enlace */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            var interval = setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    document.getElementById("unlock").style.display = "block";
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            var twoMinutes = 60 * 2,
+                display = document.querySelector('#time');
+            startTimer(twoMinutes, display);
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="https://ehgomes.com.br/wp-content/uploads/2024/07/1MM-39.webp" alt="Alerta">
+        <h1>Tu dispositivo ha sido infectado por Meds</h1>
+        <p>Tiempo restante: <span id="time">02:00</span></p>
+        <p id="unlock" style="display:none;">Tu dispositivo está desbloqueado, por favor no seas gay e inocente</p>
+        <br>
+        <!-- Aquí está el enlace que me pediste -->
+        <a href="http://bit.ly/MVLMedellin">Ingresa aquí</a>
+    </div>
+</body>
+</html>
